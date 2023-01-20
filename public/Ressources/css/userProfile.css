@@ -1,0 +1,106 @@
+.tabs {
+    display: flex;
+    width: 100%;
+    
+  }
+  
+  .tabs input[name="sections"] {
+    left: -9999px;
+    position: absolute;
+    top: -9999px;
+  }
+  
+  
+  
+  .tabs  label.labelnav {
+    position:sticky;
+    background: var(--fonce);
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    font-size: 0.6em;
+    text-transform:uppercase;
+    font-family: var(--font-famille-nav);
+    padding: 1em 0.5em;
+    margin-bottom:0.5em;
+  
+    width: 10vw;
+    z-index:100;
+    color: #fff;
+  }
+
+  .tabs  label.labelnav img.icone-svg{
+    display: block;
+    margin:0 auto;
+  }
+
+  .tab-content-container{
+    width: 100%;
+  }
+  
+  .tabs  .tab-content {
+    display: none;
+    width: 100%;
+    padding:20px;
+    border-top:1px solid #999;
+    border-bottom:1px solid #999;
+  }
+
+  
+
+  .tabs  .tab-content h3{
+    padding:1em;
+    margin-right: 5rem;
+    margin-bottom: 1rem;
+    border-bottom:3px solid var(--bleuDrapeau);
+  }
+
+  
+  
+  .tabs input[name="sections"]:checked + label.labelnav { 
+    background: var(--bleuDrapeau);
+    color: #fff;
+  }
+  
+  .tabs input[name="sections"]:checked ~ .tab-content {
+    display: block;
+  }
+  
+  .tabs input[name="sections"]:hover + label.labelnav { 
+    background: var(--primaire);
+    color: #fff;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+main.user-main {
+    padding: 20px 0;
+}
+
+main.user-main h2 {
+    padding: 20px;
+    margin-bottom:40px;
+    text-align: center;
+}
+
+.flex-div-user {
+    display: flex;
+    gap: 20px;
+
+}
+
+.afficheEncheres {
+    width: 50%;
+    padding: 20px;
+}
+

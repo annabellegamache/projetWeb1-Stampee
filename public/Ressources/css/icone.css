@@ -1,0 +1,12 @@
+a .icone-svg{
+    width: 30px;
+    display: block;
+}
+
+a:hover .icone-svg, a.active .icone-svg{
+    width: 30px;
+	cursor: pointer;
+	filter: sepia(1) saturate(3) hue-rotate(0deg);
+}
+
+

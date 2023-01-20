@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+<script src="Ressources/js/vue-liste-grille.js" defer></script>
+{% endblock %}
+
+{% block title %}Catalogue{% endblock %}
+
+
+
+
+{% block body %}
+
+    
+    <div class="container">
+        <main class="catalogue">
+            
+            <div class="afficheControle">
+                <p class="msg-erreur">{{message}}</p>
+                <div class="afficheControle-mobile">
+                    <a class="vue-filtre" href=""><img class="icone-svg"  src="Ressources/img/icone-svg/filter.svg" alt=""></a>
+                    <a class="vue-search" href=""><img class="icone-svg"  src="Ressources/img/icone-svg/search2.svg" alt=""></a>  
+                </div>
+                <a class="vue-grille-btn active" href=""><img class="icone-svg"  src="Ressources/img/icone-svg/grid.svg" alt=""></a>
+                <a class="vue-liste-btn" href=""><img class="icone-svg"  src="Ressources/img/icone-svg/list.svg" alt=""></a>
+                <form>
+                    <select name="select">
+                        <option>12 items</option>
+                        <option>24 items</option>
+                        <option>36 items</option>
+                        <option>48 items</option>
+                    </select>
+                </form>
+            </div>
+            <div class="catalogue-container">
+                <aside class="afficheTri">
+                    <form id="filterForm" method="post" action="Catalogue/select">
+                        <fieldset>
+                            <legend>Enchères</legend>
+                            <label for="radio1">
+                                <input type="radio" id="radio1"  name="enc_ce_cat_id" value="1">
+                                Archivées
+                            </label>
+                            <label for="radio2">
+                                <input type="radio" id="radio2"  name="enc_ce_cat_id" value="0" >
+                                Courante
+                            </label>
+                            <label for="radio3">
+                                <input type="radio" id="radio3"  name="enc_ce_cat_id" value="2">
+                                À venir
+                            </label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Timbres</legend>
+                                <fieldset>
+                                    <legend>Couleur</legend>
+                                    {% for couleur in couleurs %}
+                                        <label for="check{{loop.index}}"><input type="checkbox" id="check{{loop.index}}" name="tim_couleur[]" value="{{couleur.tim_couleur}}">{{couleur.tim_couleur}}</label>
+                                    {% endfor %}
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Pays</legend>
+                                    <select name="tim_pays">
+                                        <option disabled selected value="">Pays</option>
+                                        {% for lieu in pays %}
+                                        <option value="{{lieu.tim_pays}}">{{lieu.tim_pays}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </fieldset>
+                                    <fieldset>
+                                    <legend>Année publication</legend>
+                                    <input type="number" name="tim_date_creation" value="" placeholder="AAAA">
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Condition</legend>
+                                    <label for="check12"><input type="checkbox" id="check12" name="tim_condition" value="Entièrement neuf">Entièrement neuf</label>
+                                    <label for="check13"><input type="checkbox" id="check13" name="tim_condition" value="Comme neuf">Comme neuf</label>
+                                    <label for="check14"><input type="checkbox" id="check14" name="tim_condition" value="Très bon">Très bon</label>
+                                    <label for="check15"><input type="checkbox" id="check15" name="tim_condition" value="Bon">Bon</label>
+                                    <label for="check16"><input type="checkbox" id="check16" name="tim_condition" value="Acceptable">Acceptable</label>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Certifié</legend>
+                                    <label for="check17"><input type="checkbox" id="check17" name="tim_certifie" value="1">Oui</label>
+                                    <label for="check18"><input type="checkbox" id="check18" name="tim_certifie" value="0">Non</label>
+                                </fieldset>
+                        </fieldset>
+                        <div class="form-btn-right">
+                            <button class="btn tertiaire" type="submit">Rechercher</button>
+                        </div>
+                    </form>
+                </aside>
+
+
+
+
+
+                <section class="afficheContenu">
+                    <ol class="liste-vue vue-grille-article">
+                        
+                        
+                        
+                            {% for timbre in timbres %}
+                            <li>
+                                <article>
+                                    <div class="ico-coeur"><img src="Ressources/img/icone-svg/heart.svg" alt=""></div>
+                                    <header>
+                                        <img src="{{base_serveur}}images/{{timbre.img_nom}}" alt="{{timbre.img_nom}}">
+                                    </header>
+                                    <main>
+                                        <h3>{{timbre.enc_nom|upper}}</h3>
+                                        
+                                        <span>Modèle #{{timbre.tim_id}}</span>
+                                        <p>{{timbre.tim_description}} </p>
+                                        <a class="btn primaire" href="Fiche/index/{{timbre.tim_id}}">Voir</a>
+                                    </main>
+                                </article>
+                            </li>
+                            {% endfor %}
+                     
+                    </ol>
+                </section>
+            </div>
+        </main>
+    </div>
+ <!--Contenu principal FIN-->
+ {% endblock %}   

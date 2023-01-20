@@ -1,0 +1,59 @@
+/*Google font */
+
+    /*UnifrakturCook*/
+    @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+
+    /*Playfair Display*/
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+    /*Source Sans Pro*/
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+    /*Source Serif Pro*/
+    @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap');
+
+/*CSS variables*/
+@import url('_variables.css');
+
+/*CSS reset*/
+@import url('reset.css');
+
+/*CSS structure*/
+@import url('structure.css');
+
+/*CSS navigation*/
+@import url('navigation.css');
+
+/*CSS login*/
+@import url('login.css');
+
+/*CSS aside menu*/
+@import url('asideMenu.css');
+
+
+
+/*CSS texte*/
+@import url('titre-texte-typo.css');
+
+/*CSS bouton et lien*/
+@import url('bouton-lien.css');
+
+/*CSS icone*/
+@import url('icone.css');
+
+/*CSS form*/
+@import url('form.css');
+
+/*CSS footer*/
+@import url('footer.css');
+
+
+/*Specifique selon les pages...a faire le menage*/
+
+/*CSS carte*/
+@import url('carte.css');
+
+
+
+/*CSS catalogue*/
+@import url('catalogue.css');

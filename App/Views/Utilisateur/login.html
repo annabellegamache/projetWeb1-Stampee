@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <base href="{{ base_serveur }}">
+
+     
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    
+    <link rel="stylesheet" href="Ressources/css/import.css">
+    
+    <script src="Ressources/js/main.js" type="module" defer></script>
+    
+    <title>{% block title %}Login{% endblock %}</title>
+</head>
+
+
+
+{% block body %}
+
+<div class="log"> 
+<div class="container">
+    <!--Contenu principal-->
+    <div class="content">
+        <div class="flex-div">
+          
+          <div class="txt-content">
+            <a href="Accueil/index" class="logo"><img src="Ressources/img/logoStampee.png" alt="logo Stampee"></a>
+      <h1>Stampee</h1>
+            <h3>Connectez-vous avec <br> les philatélistes du monde.</h3>
+            
+          </div>
+            <form action="Utilisateur/connexion" class="login" name="login" method="post">
+              <input type="email" name="uti_courriel" placeholder="Courriel *" required />
+              <input type="password" name="uti_mdp" placeholder="Mot de passe *" required />
+              <button class="login" formaction="Utilisateur/connexion" data-js-submit>Connexion</button>
+              <div class="msg-erreur" data-js-error-msg></div> 
+              {% if erreur %}
+                <div class="msg-erreur" data-js-error-msg>{{erreur}}</div>                            
+              {% endif %}
+              <a href="#">Mot de passe oublié?</a>
+              <hr>
+              <a  class="create-account" href="Utilisateur/devenirMembre">Devenir membre</a>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>  
+    <!--Contenu principal FIN-->
+{% endblock %}

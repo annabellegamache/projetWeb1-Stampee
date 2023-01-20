@@ -1,0 +1,296 @@
+{% extends "base.html" %} 
+{% block styles %}
+<link rel="stylesheet" href="Ressources/css/userProfile.css"> 
+{% endblock %} 
+
+{% block title %}Mes enchères{% endblock %} 
+
+{% block body %}
+<!--Contenu principal-->
+<div class="container">
+  <main class="user-main">
+    <!-- Tabs -->
+    <div class="tabs">
+      <div class="section tabsnav" data-panel="{{panel}}">
+        <input type="radio" name="sections" id="option1">
+        <label class="labelnav" for="option1">
+          <img class="icone-svg" src="Ressources/img/icone-svg/plus.svg" alt=""> Timbre </label>
+        <input type="radio" name="sections" id="option2">
+        <label class="labelnav" for="option2">
+          <img class="icone-svg" src="Ressources/img/icone-svg/plus.svg" alt=""> Enchère </label>
+        <input type="radio" name="sections" id="option3">
+        <label class="labelnav" for="option3">
+          <img class="icone-svg" src="Ressources/img/icone-svg/user-edit.svg" alt=""> Mes publications </label>
+        <!--
+                <input type="radio" name="sections" id="option4"><label class="labelnav" for="option4"><img class="icone-svg" src="Ressources/img/icone-svg/eye-see.svg" alt="">
+                    Enchère
+                </label>-->
+      </div>
+      <!-- Fin nav tabs-->
+      <div class="tab-content-container">
+        <!-- tab content 1 Ajout Timbre-->
+        <div class="tab-content option1">
+          <h3>Ajouter un timbre</h3>
+          <div class="msg-ok">{{ message}}</div>
+          <form enctype="multipart/form-data" method="post" class="formUserEnchere" action="UserEnchere/add">
+            <input type="hidden" name="table" value="timbre">
+            <input type="hidden" name="userId" value="{{session.uti_id}}">
+            <label class="label-block" for="tim_nom">Nom :</label>
+            <input type="text" name="tim_nom" id="tim_nom" value="" required>
+            <label class="label-block" for="img_tim">Image:</label>
+            <input type="hidden" name="MAX_FILE_SIZE" value="3000000000">
+            <input type="file" name="img_tim" id="img_tim" accept=".png, .jpg, .jpeg" required>
+            <label class="label-block" for="tim_description">Description:</label>
+            <textarea name="tim_description" id="tim_description"  rows="5" value="" required></textarea>
+            <div class="flex-div">
+              <div>
+                <label class="label-block" for="tim_date_creation">Date de création :</label>
+                <!-- <input type="date" name="tim_date_creation" id="tim_date_creation" value="" required> -->
+                <input type="number" name="tim_date_creation" id="tim_date_creation" placeholder="YYYY" min="1000" max="2100" required>
+              </div>
+              <div>
+                <label class="label-block" for="tim_pays">Pays :</label>
+                <input type="text" name="tim_pays" id="tim_pays" value="" required>
+              </div>
+              <div>
+                <label class="label-block" for="tim_couleur">Couleur :</label>
+                <input type="text" name="tim_couleur" id="tim_couleur" value="" required>
+              </div>
+              <div>
+                <label class="label-block" for="tim_dimension">Dimension <small>(en milimèetre)</small> : </label>
+                <input type="text" name="tim_dimension" id="tim_dimension" placeholder="20 X 30" value="" required>
+                <em>mm</em>
+              </div>
+              <div>
+                <label class="label-block" for="tim_condition">Condition :</label>
+                <label class="label-block label-fix-margin" for="tim_condition_1">
+                  <input type="radio" name="tim_condition" id="tim_condition_1" value="Entièrement neuf" required>Entièrement neuf </label>
+                <label class="label-block label-fix-margin" for="tim_condition_2">
+                  <input type="radio" name="tim_condition" id="tim_condition_2" value="Comme neuf">Comme neuf </label>
+                <label class="label-block label-fix-margin" for="tim_condition_3">
+                  <input type="radio" name="tim_condition" id="tim_condition_3" value="Très bon">Très bon </label>
+                <label class="label-block label-fix-margin" for="tim_condition_4">
+                  <input type="radio" name="tim_condition" id="tim_condition_4" value="Bon acceptable">Bon acceptable </label>
+              </div>
+              <div>
+                <label class="label-block" for="tim_certifie">Timbre certifié:</label>
+                <label class="label-block label-fix-margin" for="tim_certifie_1">
+                  <input type="radio" name="tim_certifie" id="tim_certifie_1" value="1" required>Oui </label>
+                <label class="label-block label-fix-margin" for="tim_certifie_2">
+                  <input type="radio" name="tim_certifie" id="tim_certifie_2" value="0">Non </label>
+              </div>
+            </div>
+            <div class="form-btn-right">
+              <button class="tertiaire" type="submit" name="ajouter">Ajouter</button>
+            </div>
+          </form>
+        </div>
+        <!-- Fin nav tab content 1 Ajout Timbre-->
+        <!-- tab content 2 Ajout Enchère-->
+        <div class="tab-content option2">
+          <h3>Ajouter une enchère</h3>
+          <div class="msg-ok">{{ message}}</div>
+          <div class="scrool-user">
+            <form method="post" class="formUserEnchere" action="UserEnchere/add">
+              <input type="hidden" name="table" value="enchere">
+              <input type="hidden" name="userId" value="{{session.uti_id}}">
+              <!-- a changer  selon la date debut / fin-->
+              <input type="hidden" name="enc_ce_cat_id" value="0">
+              <!-- valeur a changer selon l'utilité de ce data-->
+              <input type="hidden" name="enc_type" value="0">
+              <label for="enc_nom">Nom de l'enchère:</label>
+              <input type="text" name="enc_nom" id="enc_nom" value="" required>
+              <fieldset>
+                <legend>Timbre</legend>
+                <select name="enc_tim_id" id="timbreId" required>
+                  <option value="" disabled selected>Choisir un timbre</option> 
+                  {% for timbre in timbres %} 
+                    {% if timbre.enc_tim_id is null %}
+                    <option value="{{timbre.tim_id}}">{{timbre.tim_nom}}</option>
+                    {% else %}
+                    <option disabled value="{{timbre.tim_id}}">{{timbre.tim_nom}}</option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+              </fieldset>
+              <fieldset>
+                <legend>Date</legend>
+                <input type="hidden" id="enchereTimbreId" name="enc_tim_id" value="">
+                <label for="enc_date_debut">Date de début:</label>
+                <input type="datetime-local" name="enc_date_debut" id="enc_date_debut" value="" required>
+                <label for="enc_date_fin">Date de fin:</label>
+                <input type="datetime-local" name="enc_date_fin" id="enc_date_fin" value="" required>
+              </fieldset>
+              <fieldset>
+                <legend>Prix</legend>
+                <label for="enc_prix_depart">Prix départ:</label>
+                
+                <input type="number" name="enc_prix_depart" id="enc_prix_depart" value="" required>
+                <!-- prix = prix-depart ...a l'ajout....-->
+                <input type="hidden" name="enc_prix" value="0">
+                <label for="enc_prix_reserve">Prix réserve:</label>
+                <input type="number" name="enc_prix_reserve" id="enc_prix_reserve" value="" required>
+              </fieldset>
+              <div class="form-btn-right">
+                <button id="ajouterEnchere" class="tertiaire"  name="ajouter">Ajouter</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- Fin nav tab content 2 Ajout Enchère-->
+        <!-- tab content 3 Modification/Suppression timbre-->
+        <div class="tab-content option3">
+          <!-- selection timbre-->
+          <div class="select-zone">
+          <form action="UserEnchere/select" method="post">
+            <select name="idTimbre" id="selectTimbre" onchange="this.form.submit()" required>
+                <option value="" disabled selected>Choisir un timbre</option>    
+              {% for timbre in timbres %}
+                <option value="{{timbre.tim_id}}">{{timbre.tim_nom}}</option> 
+              {% endfor %}
+            </select>
+            <div class="msg-ok">{{ message}}</div>
+            <input type="hidden" name="idUser" id="idUser" value="{{session.uti_id}}">
+            <input type="hidden" name="table" value="timbre">
+          </form>
+        </div>
+        
+        {% if tim|length > 0 %}
+          {% if tim[0].enc_ce_cat_id == 1 %}
+            {% set rd = 'readonly' %}
+            <p class="msg-erreur">L'enchère est passé, vous ne pouvez pas modifié les données</p>
+          {% elseif tim[0].enc_ce_cat_id == 0  %}
+            <p class="msg-erreur">L'enchère est en cours, vous ne pouvez pas modifié certaines données</p>
+            {% set rp = 'readonly' %}
+          {% else %}
+            {% set rp = '' %}
+            {% set rd = '' %}
+          {% endif %}
+        {% endif %}
+       
+           {% for info in tim %} 
+           <form enctype="multipart/form-data" method="post" class="formUserEnchere updateDeleteForm">
+            <div class="flex-div flex-top">
+              <div>
+                <fieldset>
+                  <legend>Info timbre</legend>
+                  <div class="flex-div">
+                    <div>
+                      <label class="label-block" for="tim_nom">Nom du timbre :</label>
+                      <input type="text" name="tim_nom" id="tim_nom" value="{{tim[0].tim_nom}}" {{ rd }}>
+                      <input type="hidden" name="tim_id"  value="{{tim[0].tim_id}}">
+                    </div>
+                    <div>
+                      <label class="label-block" for="img_tim">Image:</label>
+                      <img src="{{base_serveur}}images/{{tim[0].img_nom}}" alt="{{tim[0].img_nom}}">
+                      <input type="hidden" name="img_nom" id="img_nom" value="{{tim[0].img_nom}}" readonly>
+                      <input type="hidden" name="MAX_FILE_SIZE" value="30000">
+                      <input type="hidden" name="img_id" value="{{tim[0].img_id}}">
+                      <input type="hidden" name="img_nom_old" value="{{tim[0].img_nom}}">
+                      <br>
+                      <input type="file" name="img_tim" id="img_tim" {{ rd }}>
+                    </div>
+                  </div>
+                  <label class="label-block" for="tim_description">Description:</label>
+                  <textarea name="tim_description" id="tim_description" rows="5" value="{{tim[0].tim_description}}" {{ rd }}>{{tim[0].tim_description}}</textarea>
+                  <div class="flex-div">
+                    <div>
+                      <label class="label-block" for="tim_date_creation">Date de création :</label>
+                      <input type="number" placeholder="AAAA" name="tim_date_creation" id="tim_date_creation" value="{{tim[0].tim_date_creation}}" {{ rd }}>
+                    </div>
+                    <div>
+                      <label class="label-block" for="tim_pays">Pays :</label>
+                      <input type="text" name="tim_pays" id="tim_pays" value="{{tim[0].tim_pays}}" {{ rd }}>
+                    </div>
+                    <div>
+                      <label class="label-block" for="tim_couleur">Couleur :</label>
+                      <input type="text" name="tim_couleur" id="tim_couleur" value="{{tim[0].tim_couleur}}" {{ rd }}>
+                    </div>
+                    <div>
+                      <label class="label-block" for="tim_dimension">Dimension :</label>
+                      <input type="text" name="tim_dimension" id="tim_dimension" placeholder="tim_dimension" value="{{tim[0].tim_dimension}}" {{ rd }}>
+                      <em>mm</em>
+                    </div>
+                    <div>
+                      <label class="label-block" for="tim_condition">Condition :</label>
+                      <label class="label-block label-fix-margin" for="tim_condition_1">
+                        <input type="radio" name="tim_condition" id="tim_condition_1" {{tim[0].tim_condition=='Entièrement neuf' ? 'checked' : ''}} value="Entièrement neuf" {{ rd }}>Entièrement neuf </label>
+                      <label class="label-block label-fix-margin" for="tim_condition_2">
+                        <input type="radio" name="tim_condition" id="tim_condition_2" {{tim[0].tim_condition=='Comme neuf' ? 'checked' : ''}} value="Comme neuf" {{ rd }}>Comme neuf </label>
+                      <label class="label-block label-fix-margin" for="tim_condition_3">
+                        <input type="radio" name="tim_condition" id="tim_condition_3" {{tim[0].tim_condition=='Très bon' ? 'checked' : ''}} value="Très bon" {{ rd }}>Très bon </label>
+                      <label class="label-block label-fix-margin" for="tim_condition_4">
+                        <input type="radio" name="tim_condition" id="tim_condition_4" {{tim[0].tim_condition=='Bon acceptable' ? 'checked' : ''}} value="Bon acceptable" {{ rd }}>Bon acceptable </label>
+                    </div>
+                    <div>
+                      <label class="label-block" for="tim_certifie">Timbre certifié:</label>
+                      <label class="label-block label-fix-margin" for="tim_certifie_1">
+                        <input type="radio" name="tim_certifie" id="tim_certifie_1" {{tim[0].tim_certifie=='1' ? 'checked' : ''}} value="1" {{ rd }}>Oui </label>
+                      <label class="label-block label-fix-margin" for="tim_certifie_2">
+                        <input type="radio" name="tim_certifie" id="tim_certifie_2" {{tim[0].tim_certifie=='0' ? 'checked' : ''}} value="0" {{ rd }}>Non </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div>
+                <input type="hidden" name="userId" value="{{session.uti_id}}">
+                <!-- a changer  selon la date debut / fin-->
+                <input type="hidden" name="enc_ce_cat_id" value="{{tim[0].enc_ce_cat_id}}">
+                <!-- valeur a changer selon l'utilité de ce data-->
+                <input type="hidden" name="enc_type" value="0">
+                <input type="hidden" name="enc_id" value="{{tim[0].enc_id}}">
+                <label class="label-block" for="enc_nom">Nom de l'enchère :</label>
+                {% if tim[0].enc_nom != '' %}
+                <input type="text" name="enc_nom" id="enc_nom" value="{{tim[0].enc_nom}}" {{ rd }}>
+                <div class="info-mise">
+                  <input type="hidden" name="enc_prix" value="{{tim[0].enc_prix}}">
+                  <h5>Mise actuelle : <span>{{tim[0].enc_prix}}</span>$ </h5>
+                </div>
+                <fieldset class="plus-marge">
+                  <legend>Date</legend>
+                  <label for="enc_date_debut label-block">Date de début:</label>
+                  <input type="datetime-local" name="enc_date_debut" id="enc_date_debut" value="{{tim[0].enc_date_debut}}" required {{ rd }} {{ rp }}>
+                  <label for="enc_date_fin label-block">Date de fin:</label>
+                  
+                  <input type="datetime-local" name="enc_date_fin" id="enc_date_fin" value="{{tim[0].enc_date_fin}}" required {{ rd }} >
+                 
+                  
+                </fieldset>
+                <fieldset>
+                  <legend>Prix</legend>
+                  <label class="label-block" for="enc_prix_depart">Prix départ:</label>
+                  <input type="number" name="enc_prix_depart" id="enc_prix_depart" value="{{tim[0].enc_prix_depart}}" required {{ rd }} {{ rp }}>
+                  <label class="label-block" for="enc_prix_reserve">Prix réserve:</label>
+                  <input type="number" name="enc_prix_reserve" id="enc_prix_reserve" value="{{tim[0].enc_prix_reserve}}" required {{ rd }}>
+                </fieldset>
+                {% else %}
+                <input type="hidden" name="enc_nom" id="enc_nom" value="">
+                <input type="hidden" name="enc_date_debut" value="">
+                <input type="hidden" name="enc_date_fin" value="">
+                <input type="hidden" name="enc_prix_depart" value="">
+                <input type="hidden" name="enc_prix_reserve" value="">
+                <input type="hidden" name="enc_prix" value="">
+
+                <p class="msg-info">Aucune enchère est associée à ce timbre</p>
+                {% endif %}
+                <div class="form-btn-right">
+                  <button class="tertiaire modifier" type="submit" formaction="UserEnchere/update" disabled>Modifier</button>
+                  <button class="primaire supprimer" type="submit" formaction="UserEnchere/delete">Supprimer</button>
+                </div>
+              </div>
+            </div>
+          </form> {% endfor %}
+        </div>
+        <!-- Fin tab content 3 -->
+      </div>
+    </div>
+</div>
+</main>
+</div>
+<!--Contenu principal FIN-->
+<!-- form caché pour gérer les changement de tabs et reset form-->
+<form id="turnAround" action="UserEnchere/select" method="post">
+  <input type="hidden" id="idUser" name="idUser" value="{{session.uti_id}}">
+  <input type="hidden" id="idTimbre" name="idTimbre" value="">
+  <input type="hidden" id="table" name="table" value="">
+</form> {% endblock %}

@@ -1,0 +1,180 @@
+
+{% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="Ressources/css/fiche.css">
+{% endblock %}
+
+{% block scripts %}
+<script src="Ressources/js/zoom.js" defer></script>
+{% endblock %}
+
+{% block title %}Fiche{% endblock %}
+
+
+{% block body %}
+ <!--Contenu principal-->
+    <div class="container">
+        <main class="fiche-content">
+            {% for info in timbre %}
+            <div class="fiche">
+                <div id="img-zoomer-box">
+                    <img src="{{base_serveur}}images/{{info.img_nom}}" id="img-1" alt="{{info.img_nom}}">
+                    <div id="img-2"></div>
+                </div>
+                <div class="enchere-info">
+                    <a class="btn-ajout-aime" href="#"><img class="icone-svg" src="Ressources/img/icone-svg/heart.svg"
+                            alt=""></a>
+                    <h3>{{info.enc_nom}}</h3>
+                    <span>Lot #{{info.enc_id}}</span>
+                    <div class="zone-interactive">
+                        <div class="info-mise">
+                            {% if info.enc_ce_cat_id == 1 %}
+                               
+                              <h4>Mise gagnante</h4>
+                                <span>$ {{info.enc_prix}}</span>
+                                
+                            {% elseif info.enc_ce_cat_id == 2 %}
+                           
+                            <h4>Prix départ</h4>
+                            <span>$ {{info.enc_prix}}</span>
+                            {% elseif info.enc_ce_cat_id == 0 %}
+                                <h4>Mise courante</h4>
+                                <span>$ {{info.enc_prix}}</span>
+                            {% endif %}
+                            <div class="info-mise2">
+                                
+                                {% if info.enc_ce_cat_id == 0 %}
+                                   <p>Nombre de mise : <span>{{nbMise}}</span></p>
+                                    <p>Jour restant: <span>{{temps}}</span></p>
+                                {% endif %}
+                                {% if info.enc_ce_cat_id == 2 %}
+                                    <p>Débute dans: <span>{{temps}}</span> jours</p>
+                                {% endif %}
+                                
+                            </div>
+                            
+                            
+                        </div>
+                        {% if info.enc_ce_cat_id == 0 %}
+                            {% if session %}
+                            
+                                <form class="formUserEnchere" method="post" action="Fiche/mise">
+                                    <input type="number" min="{{info.enc_prix + 1}}" name="enc_prix"> $
+                                    <input type="hidden" name="userId" value="{{session.uti_id}}">
+                                    <input type="hidden" name="enc_id" value="{{info.enc_id}}">
+                                    <input type="hidden" name="tim_id" value="{{info.tim_id}}">
+                                    <button class="btn primaire">Placer une mise</button>
+                                </form>
+                            
+
+                            {% else %}
+                                <div>
+                                    <p>Pour miser, il faut <br> vous <a href="Utilisateur/login">connecter</a>  <br> ou   <a href="Utilisateur/devenirMembre">devenir membre</a> </p>
+                                </div>
+                            {% endif %}
+
+                            
+                            {% elseif info.enc_ce_cat_id == 1 %}
+                            <div class="info-mise3">
+                                <h2> * Enchère passée  *</h2>
+                            </div>
+                            {% elseif info.enc_ce_cat_id == 2 %}
+                            <div class="info-mise3">
+                                <h2>* Enchère à venir *</h2>
+                                    {% if session %}
+                                        <a href="">Ajouter aux favoris</a>
+                                    {% endif %}
+                            </div>
+                            {% endif %}
+                      
+                    </div>
+                    <p>{{info.tim_description}}</p>
+                    <div class="info-mise-fin">
+                        <h4>Date de fin</h4>
+                        <div class="date-info-fin">
+                            <span class="date-fin">{{dateFin}}</span>
+                            <span class="date-fuseau">{{heureFin}}</span><span class="date-fuseau2">{{timeZone}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         
+
+
+
+            <div class="timbre-info">
+                <div class="zone_fiche-details">
+                    <details open>
+                        <summary>
+                            <span>Caractéristiques</span>
+                        </summary>
+                        <div>
+                            <table class="table table-striped table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <td>Pays</td>
+                                        <td>{{info.tim_pays}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date de création</td>
+                                        <td>{{info.tim_date_creation}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Couleur</td>
+                                        <td>{{info.tim_couleur}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nom</td>
+                                        <td>{{info.tim_nom}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Condition</td>
+                                        <td>{{info.tim_condition}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Certifié</td>
+                                        <td>
+                                            {% if info.tim_certifie == 1 %}
+                                               Oui
+                                            {% else %}
+                                                Non
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>
+                            <span>Mode de paiement et de livraison</span>
+                        </summary>
+                        <div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi repudiandae odit iure
+                                sint vel quia, eius illo, expedita minima ad consequatur vitae rerum. Dolorum, ullam.
+                                Unde, minus in. Odio, accusamus?</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>
+                            <span>Termes et conditions</span>
+                        </summary>
+                        <div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi repudiandae odit iure
+                                sint vel quia, eius illo, expedita minima ad consequatur vitae rerum. Dolorum, ullam.
+                                Unde, minus in. Odio, accusamus?</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <script>
+                document.querySelector('#img-2').style.backgroundImage = "url('{{base_serveur}}images/{{info.img_nom}}')";
+            </script>
+            {% endfor %}
+        </main>
+    </div>
+    <!--Contenu principal FIN-->
+   
+    {% endblock %}  
+   

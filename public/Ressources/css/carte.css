@@ -1,0 +1,207 @@
+.liste-vue article{
+    position:relative;
+    display: flex;
+    align-items: stretch;
+    gap:var(--esp-xpetit);
+    background-color: var(--blanc);
+    border: var(--bordure-graisse) solid var(--bordure-couleur);
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+
+/*img timbre*/
+.liste-vue article header img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+
+
+.liste-vue article a.btn{
+    display: block;
+}
+
+/*icone coeur*/
+.liste-vue article .ico-coeur{
+    position:absolute;
+    top:var(--esp-petit);
+    right:-12px;
+    border: var(--bordure-graisse) solid var(--bordure-couleur);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--blanc);
+    z-index: 1;
+}
+
+.liste-vue article .ico-coeur img{
+    position: absolute;
+    width:15px;
+    top:5px;
+    left:4px;
+}
+
+.liste-vue article .ico-coeur:hover{
+    cursor:pointer;
+}
+
+/*article contenu texte*/
+.catalogue article main{
+    position: relative;
+    text-align: center;
+    padding: var(--esp-xpetit);
+}
+
+.liste-vue article main h3{
+    line-height: 0.9em;
+    font-size: calc(var(--font-size-base) + var(--font-size-ratio) * 1.75vw);
+}
+
+.liste-vue article main span{
+    font-size: calc(var(--font-size-base) + var(--font-size-ratio) * 0.4vw);
+}
+
+.liste-vue article main p{
+    text-align: center;
+    max-width: 50ch;
+    margin-top:var(--esp-xpetit);
+    margin-bottom: var(--esp-med);
+    font-size: calc(var(--font-size-base) + var(--font-size-ratio) * 0.6
+    vw);
+}
+
+
+/*carte vue liste*/
+.liste-vue.vue-liste-article article{
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.liste-vue.vue-liste-article article header{
+    width: 24vw;
+    height: 24vw;
+    z-index: 0;
+}
+
+
+/*carte vue grille*/
+.liste-vue.vue-grille-article article{
+    flex-direction: column;
+    justify-content:flex-start;
+    height: 100%;
+}
+
+.liste-vue.vue-grille-article article header{
+    width: 100%;
+    height: 45vw;
+    z-index: 0;
+}
+
+
+
+
+
+
+
+/*mediaqueries -­ mobile first*/
+
+/* Petite tablette */
+@media screen and (min-width:481px)  {   
+    
+}
+
+/* Portrait tablettess, portrait iPad, paysage 800x480 cellulaire */
+@media screen and (min-width:641px) {
+    
+   
+
+    .liste-vue.vue-liste-article article header{
+        width: 24vw;
+        height: 18vw;
+        z-index: 0;
+    }
+
+}
+
+/* Tablettes, paysage iPad, lo-res laptops et desktops */
+@media screen and (min-width:961px) {
+
+    .liste-vue article{
+        align-items: stretch;
+        gap:var(--esp-med);
+    }
+
+    .liste-vue article .ico-coeur{
+        right:-10px;
+        top:-8px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .liste-vue article .ico-coeur img{
+        width:30px;
+        top:10px;
+        left:10px;
+    }
+
+    .catalogue article main{
+        text-align: left;
+    }
+
+    .liste-vue article main{
+        padding: var(--esp-med)  ;
+    }
+
+    /*img timbre*/
+    .liste-vue article header img{
+        object-fit: cover; 
+    }
+
+    .liste-vue article main p{
+        text-align: left;
+    }
+    
+   
+    
+}
+
+/* Grande tablette paysage, laptops, and desktops */
+@media screen and (min-width:1025px) {
+    .liste-vue.vue-grille-article article header{
+        height: 18vh;
+    }
+}
+
+/* Grande resolution laptop - desktops */ 
+@media screen and (min-width:1281px) {
+    
+}
+
+/* Écran grande resolution*/
+@media screen and (min-width: 1920px) {
+       
+    }
+
+/* Ecrn 4K ultra grande resolution*/
+@media screen and (min-width: 3840px) {
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

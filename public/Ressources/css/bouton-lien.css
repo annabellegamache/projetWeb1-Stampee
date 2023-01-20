@@ -1,0 +1,86 @@
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    color:var(--txtSurvol);
+}
+
+.btn {
+    text-align: center;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-famille-texte);
+    text-decoration: none;
+    font-size: 0.8em;
+    border-radius: var(--bordure-rayon);
+    cursor: pointer;
+    outline: none;
+}
+
+
+
+/* variations */
+.primaire {
+    border: var(--bordure-graisse) solid var(--primaire);
+    background: var(--primaire);
+    color: var(--txtClaire);
+    transition: background-color 0.3s ease;
+}
+.secondaire {
+    border: var(--bordure-graisse) solid var(--secondaire);
+    background: var(--secondaire);
+    color: var(--txtClaire);
+    transition: background-color 0.3s ease;
+}
+
+.tertiaire {
+    border: var(--bordure-graisse) solid var(--bleuDrapeau);
+    background: var(--bleuDrapeau);
+    color: var(--txtClaire);
+    transition: background-color 0.3s ease;
+}
+.primaire:hover {
+    background: var(--fonce);
+    color: var(--txtClaire);
+}
+.secondaire:hover {
+    background: var(--fonce);
+    color: var(--txtClaire);
+}
+
+.tertiaire:hover {
+    background: var(--fonce);
+    color: var(--txtClaire);
+}
+.lien {
+color: var(--primaire);
+}
+
+
+.blanc-rouge{
+    border: var(--bordure-graisse) solid var(----primaire);
+    background: var(--txtClaire);
+    color: var(--primaire);
+    transition: background-color 0.3s ease;
+}
+
+.blanc-rouge:hover{
+    background: var(--primaire);
+    color: var(--txtClaire);
+}
+
+.blanc-bleu{
+    border: var(--bordure-graisse) solid var(--bleuDrapeau);
+    background: var(--txtClaire);
+    color: var(--bleuDrapeau);
+    transition: background-color 0.3s ease;
+}
+
+.blanc-bleu:hover{
+    background: var(--bleuDrapeau);
+    color: var(--txtClaire);
+}
+
+

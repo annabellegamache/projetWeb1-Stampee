@@ -1,0 +1,113 @@
+footer{
+    color:var(--clairePlus);
+    padding:var(--esp-med) var(--esp-petit);
+    background-color: var(--fonce);
+    padding-bottom: 100px;
+}
+
+footer{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+footer div.info-stampee{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--esp-petit) 0;
+    gap:var(--esp-petit);
+}
+
+
+footer a.logo img{
+    max-width: 40px;
+}
+
+
+footer nav{
+    padding:var(--esp-petit);
+    border-top:1px solid #666;
+    border-bottom:1px solid #666;
+}
+
+footer nav a{
+    display: block;
+    padding: var(--esp-xpetit) var(--esp-med);
+    color:var(--clairePlus);
+    font-size: calc(var(--font-size-base) + var(--font-size-ratio) * 1vw);
+    font-family: var(--font-famille-nav);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+footer div form *{
+    width: 100%;
+    margin:var(--esp-petit) auto;
+}
+
+/*mediaqueries -­ mobile first*/
+
+/* Petite tablette */
+@media screen and (min-width:481px)  {   
+    
+}
+
+/* Portrait tablettess, portrait iPad, paysage 800x480 cellulaire */
+@media screen and (min-width:641px) {
+}
+
+/* Tablettes, paysage iPad, lo-res laptops et desktops */
+@media screen and (min-width:961px) {
+    footer{
+        padding:var(--esp-xlarge) var(--esp-med);
+    }
+    footer{
+        flex-direction: row;
+    }
+    footer div.info-stampee{
+        display: block;
+        
+        gap:var(--esp-med);
+    }
+    footer nav{
+        padding:var(--esp-med);
+        border-top:none;
+        border-bottom:none;
+    }
+    footer a.logo img{
+        max-width: 60px;
+    }
+    footer nav a{
+        font-size: calc(var(--font-size-base) + var(--font-size-ratio) * 0.5vw);
+        text-align: left;
+    }
+
+}
+
+/* Grande tablette paysage, laptops, and desktops */
+@media screen and (min-width:1025px) {
+    footer nav a{
+        font-size: calc(var(--font-size-base) + var(--font-size-ratio) * 0.5vw); 
+    }
+}
+
+/* Grande resolution laptop - desktops */ 
+@media screen and (min-width:1281px) {
+    
+}
+
+/* Écran grande resolution*/
+@media screen and (min-width: 1540px) {
+    
+}
+
+
+/* Écran grande resolution*/
+@media screen and (min-width: 1920px) {
+    
+}
+
+/* Ecrn 4K ultra grande resolution*/
+@media screen and (min-width: 3840px) {
+    
+}

@@ -1,0 +1,63 @@
+
+ /*Variables*/
+
+:root{
+
+    /*Typo*/
+    --font-famille-fancy:  'UnifrakturMaguntia', cursive;
+    --font-famille-titre: 'Playfair Display', serif;
+    --font-famille-texte: 'Source Sans Pro', sans-serif;
+    --font-famille-nav: 'Source Serif Pro', serif;
+
+    --font-size-base: 14px;
+    --font-size-ratio: 0.9;
+
+    --rem: calc(var(--font-size-base) + var(--font-size-ratio) * 0.8vw);
+
+   
+   
+    /*Couleur*/
+    --primaire:  #630000;
+    --secondaire: #333333;
+    --clairePlus:#faf3e6; 
+    --claireMoins:#f0eded; 
+    
+    --tonMoyen:#8e7878;
+    --fonce: #1b1717;
+    --blanc : #ffffff;
+    --focus: #0949d9;
+    --bleuDrapeau:#012169;
+    --rougeDrapeau:#c8102e;
+
+   
+
+    --txtPrimaire: #000;
+    --txtSecondaire: #666;
+    --txtTertiaire : #7d7038;
+    --txtClaire: #fff;
+    --txtSurvol:var(--focus);
+
+    /*Bordure*/
+    --bordure-rayon: 0.25rem;
+    --bordure-couleur: #d9d8d6;
+    --bordure-graisse : 1px;
+
+    /*Espacement*/
+    --esp-xpetit: 5px;
+    --esp-petit: 10px;
+    --esp-med: 20px;
+    --esp-large: 40px;
+    --esp-xlarge: 60px;
+
+    /*Avatar*/
+    --avatar-size: 30px;
+   
+}
+
+
+
+   
+  
+
+
+

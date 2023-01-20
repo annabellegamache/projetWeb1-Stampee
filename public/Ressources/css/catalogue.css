@@ -1,0 +1,193 @@
+
+.catalogue-container{
+    position: relative;
+    display: block;
+    margin:var(--esp-xpetit);
+}
+
+.catalogue div.afficheControle-mobile{
+    display:flex;
+    gap:var(--esp-med);
+}
+
+
+
+.catalogue div.afficheControle{
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    gap: var(--esp-petit);
+    padding-top:var(--esp-xpetit) ;
+}
+
+
+/*.catalogue div.afficheControle .vue-grille-btn{
+    display:none;
+}
+
+
+.catalogue div.afficheControle .vue-liste-btn{
+    display:none;
+}*/
+
+.catalogue div.afficheControle form{
+    display: inline-block;   
+}
+
+.catalogue .afficheContenu{
+    position: relative;
+    flex-grow: 1;
+    background-color: var(--claireMoins);
+    margin: var(--esp-med) 0;
+    padding: var(--esp-med);
+    z-index: 1;
+}
+
+
+
+/* vue liste*/
+.catalogue .afficheContenu .liste-vue {
+    display:flex;
+    justify-content:flex-start;
+    gap: var(--esp-petit);
+    list-style: none;
+}
+
+.catalogue .afficheContenu .liste-vue  li{
+    transition: all 0.3s ease;
+}
+
+.vue-liste-article{
+    flex-direction: column;
+}
+
+.liste-vue.vue-liste-article article header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* vue grille */
+.vue-grille-article{
+    flex-flow: row wrap;
+}
+
+.liste-vue article main  {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.liste-vue article main h3 {
+    line-height: 1em;
+    font-size: 1em;
+}
+
+.liste-vue article main p {
+    line-height: 0.9em;
+    font-size: calc(var(--font-size-base) + var(--font-size-ratio) * 0.3vw);
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+
+
+/*mediaqueries -­ mobile first*/
+
+/* Petite tablette */
+@media screen and (min-width:481px)  {   
+   
+    .catalogue div.afficheControle{
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        gap: var(--esp-petit);
+        padding-top:var(--esp-xpetit) ;
+    }
+}
+
+/* Portrait tablettess, portrait iPad, paysage 800x480 cellulaire */
+@media screen and (min-width:641px) {
+    .vue-grille-article li{
+        width: calc(50% - var(--esp-petit));
+    }
+}
+
+/* Tablettes, paysage iPad, lo-res laptops et desktops */
+@media screen and (min-width:961px) {
+
+    .catalogue div.afficheControle-mobile{
+        display:none;
+    }
+
+    .catalogue-container{
+        display: flex;
+        justify-content: space-between;
+        gap:var(--esp-med);
+    }
+
+    .catalogue div.afficheControle{
+        justify-content: end;
+        gap: var(--esp-petit);
+        padding-top:var(--esp-petit) ; 
+    }
+
+    .catalogue div.afficheControle .vue-grille-btn{
+        display:block;
+    }
+    
+    
+    .catalogue div.afficheControle .vue-liste-btn{
+        display:block;
+    }
+
+     /* vue grille */
+     .vue-grille-article{
+        justify-content: center;
+    }
+
+   
+ 
+
+    
+}
+
+/* Grande tablette paysage, laptops, and desktops */
+@media screen and (min-width:1025px) {
+
+    .vue-grille-article li{
+        width: calc(32% - var(--esp-petit));
+    }
+    
+}
+
+/* Grande resolution laptop - desktops */ 
+@media screen and (min-width:1281px) {
+    .vue-grille-article li{
+        width: calc(25% - var(--esp-petit));
+    }
+
+   
+    
+}
+
+/* Écran grande resolution*/
+@media screen and (min-width: 1920px) {
+        
+    }
+
+/* Ecrn 4K ultra grande resolution*/
+@media screen and (min-width: 3840px) {
+   
+}
+
+
+
+
+
+
+
+

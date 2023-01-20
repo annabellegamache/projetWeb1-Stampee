@@ -1,0 +1,228 @@
+div.log{
+  background-color: #f7f7f7;
+  min-height: 98vh;
+}
+
+.content {
+    padding-top:15vh;
+}
+  
+
+  
+  .txt-content {
+    padding-right: 5rem;
+    border-right: 3px solid var(--primaire);
+    
+  }
+  
+.txt-content h1{
+    display:inline-block;
+    font-family: var(--font-famille-fancy);
+    color:var(--fonce);
+    font-size: calc(var(--font-size-base) + var(--font-size-ratio) * 8vw);
+}
+  
+  .txt-content h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: right;
+  }
+  
+ form.login {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 530px;
+    min-height: 380px;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  }
+  
+  form.login input, form.login input::placeholder {
+    outline: none;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.8rem;
+    
+  }
+  
+  form.login input:focus {
+    border: 1px solid var(--focus);
+    border-radius: 0.4rem;
+  
+  }
+  
+  form.login .login {
+    outline: none;
+    border: none;
+    background: var(--bleuDrapeau);
+    padding: 0.8rem 1rem;
+    border-radius: 0.4rem;
+    font-size: 1.1rem;
+    color: #fff;
+  }
+  
+  form.login .login:hover {
+    background: var(--fonce);
+    cursor: pointer;
+  }
+  
+  form.login a {
+    text-decoration: none;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.8rem 0;
+    color: #666;
+  }
+
+  form.login a:hover {
+    color:var(--primaire);
+  }
+  
+  form.login hr {
+    color:var(--primaire);
+    margin: 1rem;
+  }
+  
+  form.login .create-account {
+    outline: none;
+    border: none;
+    background: var(--primaire);
+    color:#fff;
+    padding: 0.8rem 1rem;
+    border-radius: 0.4rem;
+    font-size: 1.1rem;
+    width: 75%;
+    margin: 0 auto;
+  }
+  
+  form.login .create-account:hover {
+    background: var(--fonce);
+    color:#fff;
+    cursor: pointer;
+  }
+
+  .circle {
+    background-color: var(--bleuDrapeau);
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    height: var(--avatar-size);
+    text-align: center;
+    width: var(--avatar-size);
+  }
+
+  .circle:hover {
+    cursor: pointer;
+  }
+  
+  .initials {
+    font-size: calc(var(--avatar-size) / 2); /* 50% of parent */
+    line-height: 1;
+    position: relative;
+    color:#fff;
+  }
+  
+ .inputErreur{
+  border: 1px solid red;
+ }
+  
+  /* //.........Media Query.........// */
+  
+  @media (max-width: 500px) {
+    
+  
+    form.login {
+      width: 300px;
+      height: fit-content;
+    }
+  
+    form.login input {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+  
+    form.login .login {
+      font-size: 1.5rem;
+    }
+  
+    form.login a {
+      font-size: 1.5rem;
+    }
+  
+    form.login .create-account {
+      font-size: 1.5rem;
+    }
+  
+    .flex-div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
+  @media (min-width: 501px) and (max-width: 768px) {
+    
+  
+    form.login {
+      width: 300px;
+      height: fit-content;
+    }
+  
+    form.login input {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+  
+    form.login .login {
+      font-size: 1.5rem;
+    }
+  
+    form.login a {
+      font-size: 1.5rem;
+    }
+  
+    form.login .create-account {
+      font-size: 1.5rem;
+    }
+  
+    .flex-div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1200px) {
+    
+  
+    form.login {
+      width: 300px;
+      height: fit-content;
+    }
+  
+    form.login input {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+  
+    form.login .login {
+      font-size: 1.5rem;
+    }
+  
+    form.login a {
+      font-size: 1.5rem;
+    }
+  
+    form.login .create-account {
+      font-size: 1.5rem;
+    }
+  
+    .flex-div {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    @media (orientation: landscape) and (max-height: 500px) {
+      .header {
+        height: 90vmax;
+      }
+    }  
+  }

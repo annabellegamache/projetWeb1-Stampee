@@ -1,0 +1,275 @@
+form label{
+  display: inline-block;
+}
+
+
+input[type="text"], textarea, input[type="date"], input[type="number"], input[type="email"], input[type="password"], input[type="search"], select{
+  display:block;
+  background-color: var(--blanc);
+  border: 1px solid var(--bordure-couleur);
+  padding: 0.8em 1em;
+  border-radius: var(--bordure-rayon);
+  outline: none;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
+  
+}
+
+input:-webkit-autofill::first-line{
+  font-size: 1.1rem;
+}
+
+form input:focus {
+  box-shadow: 0 0px 2px var(--focus);
+}
+
+input[type="search"] {
+  background: var(--blanc)  url(../img/icone-svg/search.svg) no-repeat 5px center;
+  padding-left:30px;
+}
+
+input::placeholder, select option:first-child {
+  color: #bbb;
+}
+
+form button{
+  display: block;
+  border:none;
+  margin:20px 0;
+}
+
+
+/*radio et checkbox  ref: https://iamkate.com/code/checkboxes-and-radio-buttons/ */
+
+input[type="checkbox"], input[type="radio"]{
+  -webkit-appearance : none;
+  appearance         : none;
+  width              : 20px;
+  height             : 20px;
+  margin             : calc(0.75em - 11px) 0.25rem 0 0;
+  vertical-align     : middle;
+  border             : var(--bordure-graisse) solid var(--bordure-couleur);
+  border-radius      : var(--bordure-rayon);
+  background         : #fff no-repeat center center;
+}
+
+input[type="radio"]{
+  border-radius      : 50%; 
+}
+
+
+
+input[type="radio"]{
+  border-radius : 50%;
+}
+
+input[type="checkbox"]:active, input[type="radio"]:active, input[type="checkbox"]:focus, input[type="radio"]:focus{
+  border-color : var(--focus);
+  outline      : none;
+}
+
+input[type="checkbox"]:disabled, input[type="radio"]:disabled{
+  background : var(--blanc);
+}
+
+input[type="checkbox"]:checked{
+ /* background-image : url(./assets/img/icone-svg/checkbox.svg);*/
+  background-image: url(../img/icone-svg/checkbox.svg);
+
+}
+
+input[type="radio"]:checked{
+  background-image : url(../img/icone-svg/radio.svg);
+}
+
+
+/*USER form*/
+
+.afficheEncheres .formUserEnchere{
+  margin:1rem 0;
+  font-size: 1.1rem;
+}
+
+.afficheEncheres .formUserEnchere label{
+  display: block;
+  padding: 0;
+  margin-right: 0.2rem;
+  cursor: default;
+  background-color: transparent;
+  font-weight: normal;
+  font-size: 1.1rem;
+  transition:none;
+}
+
+.formUserEnchere {
+  padding: 20px;
+ }
+
+.formUserEnchere fieldset{
+ border:1px solid var(--primaire);
+ padding: 20px;
+}
+
+.formUserEnchere fieldset legend{
+  margin:0.5rem;
+  font-size: 0.6em;
+ }
+
+.form-btn-right{
+  margin:40px 0;
+  text-align: right;
+}
+
+.info-mise h5{
+  font-size: 0.8em;
+  color:#333;
+}
+
+.info-mise h5 span{
+  font-size: 2em;
+  color:var(--primaire);
+}
+
+.formUserEnchere  button, .formUserEnchere  input[type="file"]{
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color:#fff;
+    padding: 0.8rem 1rem;
+    border-radius: 0.4rem;
+    font-size: 1.1rem;
+    margin: 2;
+}
+
+.formUserEnchere  input[type="file"]{
+  color:#333;
+}
+
+.formUserEnchere  hr{
+  margin:10px 0;
+}
+
+.formUserEnchere input, .formUserEnchere textarea, .formUserEnchere select{
+  display:inline-block;
+  background-color: rgb(244, 244, 244);
+  border: none;
+  padding: 0.8em 1em;
+  border-radius: var(--bordure-rayon);
+  outline: none;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  color:var(--bleuDrapeau);
+}
+
+
+.formUserEnchere input:focus, .formUserEnchere textarea:focus, .formUserEnchere select:focus{
+  outline:1px dotted var(--primaire) ;
+}
+
+.select-zone{
+  background-color: #f0eded; 
+  padding:20px;
+}
+
+#selectTimbre{
+  width: 50%;
+  margin-bottom:20px;
+}
+
+.formUserEnchere input[readonly], .formUserEnchere select[readonly], .formUserEnchere textarea[readonly]{
+
+  background-color: #fff;
+  color:var(--primaire);
+ 
+}
+
+
+
+.formUserEnchere  button:disabled{
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.formUserEnchere  label{
+  font-size:0.6em;
+  margin-bottom:5px;
+  margin-top:10px;
+}
+
+.formUserEnchere  label.label-block{
+  display:block;
+}
+
+.label-block{
+  display:block!important;
+}
+
+
+
+.formUserEnchere  label.label-block.label-fix-margin{
+  margin-bottom:0px;
+  margin-top:-2px;
+}
+
+.formUserEnchere input[type="radio"]{
+  border-radius: 50%; 
+  appearance: none;
+    width: 10px;
+    height: 10px;
+    padding: 0.5rem;
+    vertical-align: middle;
+    border: var(--bordure-graisse) solid var(--bordure-couleur);
+   
+}
+
+.formUserEnchere  .flex-div{
+  gap:20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.formUserEnchere  .flex-div div{
+  min-width: 30%;
+}
+
+.formUserEnchere.updateDeleteForm  .flex-div div{
+  min-width: auto;
+}
+
+.formUserEnchere.updateDeleteForm .info-mise{
+  margin:40px 0;
+}
+
+.formUserEnchere.updateDeleteForm fieldset.plus-marge{
+  margin:20px 0;
+}
+
+.formUserEnchere.updateDeleteForm p.msg-info{
+  font-style: italic;
+  color: var(--primaire);
+}
+
+.formUserEnchere img{
+  display: inline-block;
+  max-width: 200px;
+}
+
+.formUserEnchere  .flex-div.flex-proche{
+  justify-content:flex-start;
+  align-items: center;
+}
+
+.formUserEnchere em{
+  font-size: 1rem;
+}
+
+.formUserEnchere textarea{
+  width:100%;
+}
+
+.formUserEnchere .select:invalid{ 
+  color: gray; 
+}

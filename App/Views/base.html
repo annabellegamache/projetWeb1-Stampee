@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+     <base href="{{ base_serveur }}">
+
+    <!-- <base href="https://e0239070.webdev.cmaisonneuve.qc.ca/stampee/public/">-->
+
+    
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <!-- styles -->
+    <link rel="stylesheet" href="Ressources/css/import.css">
+    
+    {% block styles %}{% endblock %}
+
+    <!-- scripts -->
+    <script src="Ressources/js/userProfile.js" type="module" defer></script>
+    {% block scripts %}{% endblock %}
+
+    
+    
+    
+    <title>{% block title %}{% endblock %}</title>
+
+</head>
+
+<body>
+    
+     <!--Entete et navigation-->
+     <div class="container header-container-nav">
+        <header>
+            <a href="Accueil/index" class="logo"><img src="Ressources/img/logoStampee.png" alt="logo Stampee"></a>
+            <h1>Stampee</h1>
+            <div class="menu-container">
+                <div class="menu-utilisateur">
+                    
+                    {% if session %}
+                        <a class="menu-option" href="#">$CAD</a>
+                        <a class="menu-option" href="#">FR</a>
+                        <a class="favoris" href="#"><img class="icone-svg"
+                                src="Ressources/img/icone-svg/heart-rempli.svg" alt="icone-coeur">
+                            <div>3</div>
+                        </a>
+                        <a class="notifications" href="#"><img class="icone-svg"
+                                src="Ressources/img/icone-svg/bell.svg" alt="icone-coeur"></a>
+                        
+                            <button  class="circle" data-js-profile>
+                                <span class="initials">{{ session.uti_prenom|first|upper }}{{ session.uti_nom|first|upper }}</span>
+                            </button>
+                        
+                        
+
+                    {% else %}
+
+                        <a class="btn tertiaire" href="Utilisateur/login">Connexion</a>
+                        <a class="btn primaire" href="Utilisateur/devenirMembre">Inscription</a>
+                    {% endif %}
+                </div>
+                <form id="formSearch" method="post" action="Catalogue/search">
+                    <input name="recherche" type="search" placeholder="Recherche">
+                </form>
+                <nav>
+                    <ul>
+                        <li><a href="Catalogue/index">Enchères</a></li>
+                        <li><a href="#">Actualités</a></li>
+                        <li><a href="#">À propos</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <form class="mobile-search">
+                <input type="search" placeholder="Recherche">
+            </form>
+        </header>
+        <!-- Navigation membre/profil-->
+        <div class="menu-profile" data-js-profile-menu>
+            <div class="profile">
+                {{ session.uti_prenom|upper }} <br> {{ session.uti_nom|upper }}
+            </div>
+            <nav>
+                    <a href="#">Profil</a>
+                    <a href="UserEnchere/index">Mes enchères</a>
+                    <a href="#">Paramètres</a>
+                    <a class="btn-log-out" data-js-deconnexion>Déconnexion</a>
+            </nav>
+        </div>
+
+        <!-- FIN Navigation membre/profil-->
+        <div class="nav-mobile">
+            <div class="container">
+                <form class="mobile-search-xsmall">
+                    <input type="search" placeholder="Recherche">
+                </form>
+                <nav class="nav-mobile-link-container">
+                    <a href="Catalogue/index">Enchères</a>
+                    <a href="#">Actualités</a>
+                    <a href="#">À propos</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="menu-utilisateur-mobile">
+        <div class="container">
+            <a class="favoris" href="#"><img class="icone-svg" src="Ressources/img/icone-svg/heart-rempli.svg"
+                    alt="icone-coeur">
+                <div>3</div>
+            </a>
+            <a class="notifications" href="#"><img class="icone-svg" src="Ressources/img/icone-svg/bell.svg"
+                    alt="icone-coeur"></a>
+            <a class="login" href="Utilisateur/login"><img class="icone-svg" src="Ressources/img/icone-svg/user.svg"
+                    alt="icone-utilisateur"> </a>
+        </div>
+    </div> 
+    <!--Entete et navigation FIN-->
+
+    {% block body %}
+    {% endblock %}
+    <!--Pied de page -->
+    <div class="container">
+        <footer>
+            <div class="info-stampee">
+                <a href="Accueil/index" class="logo"><img src="Ressources/img/logoStampee-blanc.png" alt="logo Stampee"></a>
+                <p>Senate House,<br> Malet St,  London <br> WC1E 7HU, Royaume-Uni</p>
+            </div>
+            <nav>
+                <a href="Catalogue/index">Enchères</a>
+                <a href="#">Actualités</a>
+                <a href="#">À propos</a>
+                <a href="#">Contact</a>
+                <a href="#">Fonctionnement de la plateforme</a>
+                <a href="#">Termes et condition</a>
+            </nav>
+            <div>
+                <h2>S'inscrire aux alertes</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure, neque illo!</p>
+                <form>
+                    <input type="text" placeholder="Courriel">
+                    <button class="btn primaire">S'inscrire</button>
+                </form>
+            </div>
+        </footer>
+        <!--Pied de page FIN-->
+    </div>
+    
+</body>
+
+</html>
+
+

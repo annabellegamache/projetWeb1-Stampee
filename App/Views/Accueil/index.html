@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block styles %}<link rel="stylesheet" href="Ressources/css/accueil.css">{% endblock %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+   
+    <!--Contenu principal-->
+    <div class="container">
+        <main>
+            <section class="zone-valeur">
+                <h1>Enchères de timbres</h1> 
+                <h2>Pour les plus grands philatélistes du monde!</h2>
+            </section>
+
+            <div class="zone-cta-enchere">
+                <a href="Catalogue/select/1">
+                <div>
+                    <h5>Enchères archivées</h5>
+                    <small>Vous voulez retrouvés une enchère passée?</small>
+                    Voir
+                </div>
+            </a>
+            <a href="Catalogue/select/2">
+                <div>
+                    <h5>Enchères futures</h5>
+                    <small>Vous ne voulez pas manqué une enchère?</small>
+                    Voir
+                </div>
+            </a>
+            </div>
+           
+            <section class="zone-enchere">
+                <h2>Offres vedettes</h2>
+
+
+
+
+
+                
+                <div class="enchere-vedette-container">
+                    <div class="enchere-vedette">
+                        <article>
+                            <img src="Ressources/img/timbre-placeholder.jpg" alt="timbre">
+                            <div class="enchere-info">
+                                <div>
+                                    <h4>Timbre du Canada - voilier</h4>
+                                    <span>Modèle #02345</span>
+                                    <h5>Mise courante : <span>1200 $</span></h5>
+                                </div>
+                               
+                                <a class="btn primaire" href="fiche.html">Placer une mise</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="enchere-secondaire">
+                        <article>
+                            <img src="Ressources/img/timbre-placeholder2.jpg" alt="timbre">
+                            <div class="enchere-info">
+                                <div>
+                                    <h4>Nom de l'enchère</h4>
+                                    <span>Modèle #02345</span>
+                                    <h5>Mise courante : <span>1200 $</span></h5>
+                                </div>
+                                <a class="btn primaire" href="#">Miser</a>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="Ressources/img/timbre-placeholder3.jpg" alt="timbre">
+                            <div class="enchere-info">
+                                <div>
+                                    <h4>Nom de l'enchère</h4>
+                                    <span>Modèle #02345</span>
+                                    <h5>Mise courante : <span>1200 $</span></h5>
+                                </div>
+                                <a class="btn primaire" href="#">Miser</a>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="Ressources/img/timbre-placeholder4.jpg" alt="timbre">
+                            <div class="enchere-info">
+                                <div>
+                                    <h4>Nom de l'enchère</h4>
+                                    <span>Modèle #02345</span>
+                                    <h5>Mise courante : <span>1200 $</span></h5>
+                                </div>
+                                <a class="btn primaire" href="#">Miser</a>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="Ressources/img/timbre-placeholder.jpg" alt="timbre">
+                            <div class="enchere-info">
+                                <div>
+                                    <h4>Nom de l'enchère</h4>
+                                    <span>Modèle #02345</span>
+                                    <h5>Mise courante : <span>1200 $</span></h5>
+                                </div>
+                               
+                                <a class="btn primaire" href="#">Miser</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="zone-actualité">
+                <h2>Actualités</h2>
+                <div class="zone-actualite-container">
+                    <article>
+                        <img src="Ressources/img/debute-collection.jpg" alt="actualite1">
+                        <h3>Comment débuter une collection de timbre</h3>
+                        <a href="#">En savoir plus</a>   
+                    </article>
+                    <article>
+                        <img src="Ressources/img/valeur-collection.jpg" alt="actualite2">
+                        <h3>Savoir la valeur de votre collection de timbre</h3>
+                        <a href="#">En savoir plus</a>   
+                    </article>
+                    <article>
+                        <img src="Ressources/img/evenement-londre.jpg" alt="actualite3">
+                        <h3>Journée collectionneur à Londre</h3>
+                        <a href="#">En savoir plus</a>   
+                    </article>
+                </div>
+            </section>
+
+            <section class="zone-lord">
+                    <h2>À propos du Lord Stampee</h2>
+                    <div class="zone-lord-container">
+                        <div class="zone-lord-texte">
+                            <blockquote>
+                                <p>La science du bonheur philatélique est d'aimer sa collection et d'y chercher son plaisir.</p>
+                            </blockquote>
+                            <p>Lord Reginald Stampee, duc de Worcessteshear et philatéliste depuis sa tendre enfance au milieu des années cinquante. Reginald a de nombreux correspondants de partout dans le monde...</p>
+                            <a class="btn tertiaire" href="">En savoir plus</a>
+                    </div>
+                        <img src="Ressources/img/lordStampee.jpg" alt="lorsd Stampee">
+                    </div>
+            </section>
+        
+        </main>
+    </div>
+    <!--Contenu principal FIN-->
+{% endblock %}

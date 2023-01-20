@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+  <base href="{{ base_serveur }}">
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    
+    <link rel="stylesheet" href="Ressources/css/import.css">
+    
+    <script src="Ressources/js/main.js" type="module" defer></script>
+    
+    <title>{% block title %}Devenir Membre{% endblock %}</title>
+</head>
+
+
+
+{% block body %}
+<div class="log"> 
+<div class="container">
+      
+    <!--Contenu principal-->
+    <div class="content">
+        <div class="flex-div">
+          
+          <div class="txt-content">
+            <a href="Accueil/index" class="logo"><img src="Ressources/img/logoStampee.png" alt="logo Stampee"></a>
+      <h1>Stampee</h1>
+       <h3>Rejoingnez les philatélistes du monde.</h3>
+            
+          </div>   
+            
+            <form action="Utilisateur/add" class="login" method="post" name="inscription">
+              <input type="text" name="uti_prenom" placeholder="Prénom *" required  />
+              <input type="text" name="uti_nom" placeholder="Nom *" required  />
+              <input type="email" name="uti_courriel" placeholder="Courriel *" required />
+              <input type="password" name="uti_mdp" placeholder="Mot de passe *" required  >
+              <input type="hidden" name="uti_status">
+              <input type="hidden" name="uti_rol_id_ce">
+              <button class="login" formaction="Utilisateur/add" data-js-submit>S'inscrire</button>
+              <div class="msg-erreur" data-js-error-msg></div> 
+              {% if erreur %}
+                <div class="msg-erreur" data-js-error-msg>{{erreur}}</div>                            
+              {% endif %}
+              <hr>
+              <a href="#">Déjà membre ?</a>
+              <a class="create-account" href="Utilisateur/login">Connexion</a>
+            </form>
+
+            <hr>
+              
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>  
+    <!--Contenu principal FIN-->
+{% endblock %}

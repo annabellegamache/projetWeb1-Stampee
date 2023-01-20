@@ -1,0 +1,303 @@
+.fiche {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-petit);
+}
+
+.enchere-info {
+  padding-top: var(--esp-xlarge);
+}
+
+.enchere-info a.btn-ajout-aime{
+  display: inline-block;
+  width: 100%;
+  text-align: right;
+}
+
+.enchere-info a.btn-ajout-aime img{
+ 
+  float: right;
+}
+
+.zone-interactive {
+  margin: var(--esp-med) 0;
+  padding: var(--esp-med) 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.enchere-info h4 {
+  font-family: var(--font-famille-texte);
+  text-transform: uppercase;
+  color: #666;
+}
+
+.info-mise span {
+  font-family: var(--font-famille-texte);
+  color: #666;
+  font-size: 2em;
+}
+
+.info-mise2 {
+  font-family: var(--font-famille-texte);
+  color: #666;
+  font-size: 0.6em;
+}
+
+.info-mise span{
+  color:var(--bleuDrapeau);
+}
+
+.info-mise2 span{
+  font-family: var(--font-famille-texte);
+  color: var(--bleuDrapeau);
+  font-size: 1em;
+}
+
+.info-mise3{
+  text-align: center;
+}
+
+
+.info-mise3 h2{
+  font-size: 1em;
+  color:var(--primaire);
+}
+
+.info-mise3 a{
+  font-size: 0.65em;
+  color:var(--bleuDrapeau);
+}
+
+
+.info-mise-fin {
+  margin-top: var(--esp-xlarge);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fiche-content input[type='number']{
+  max-width: 150px;
+}
+
+.date-info-fin span {
+  display: block;
+}
+
+.date-info-fin span.date-fin{
+  font-size: 1.8em;
+  color:#666;
+  text-align:right;
+}
+
+.date-info-fin span.date-fuseau{
+  font-size: 1.2em;
+  text-align:right;
+}
+
+.date-info-fin span.date-fuseau2{
+  font-size: 0.8em;
+  text-align:right;
+  color:#999;
+}
+
+/*tabs details*/
+.zone_fiche-details details {
+ padding:10px;
+ margin: 5px auto;
+ max-width: 100%;
+ background: #ffffff;
+ border: 1px solid #ececec;
+ border-radius: 8px;
+}
+
+.zone_fiche-details details p {
+  max-width: 200ch;
+ }
+
+.zone_fiche-details summary:hover{
+   cursor:pointer
+}
+.zone_fiche-details details summary::marker{
+   content: url(../img/icone-svg/chevron-down.svg); 
+}
+.zone_fiche-details details[open] summary::marker{
+   content: url(../img/icone-svg/chevron-up.svg);  
+}
+.zone_fiche-details summary span{
+   max-width: fit-content;
+   font-family: var(--font-famille-nav);
+   font-size: 1.25em;
+}
+.zone_fiche-details summary+div{
+   padding:20px 30px;
+}
+.zone_fiche-details summary+div p{
+   margin:5px 0;
+}
+
+/*Caracteristique tabs*/
+
+.table-bordered {
+  border: 1px solid #ddd;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+table {
+  background-color: transparent;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: calc(var(--font-size-base) + var(--font-size-ratio) * 0.6vw);
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+.table-striped>tbody>tr td:first-child {
+  font-weight: bold;
+}
+
+.table>tbody>tr>td, .table>tfoot>tr>td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+
+/*Zooming ref : //Demo: https://www.codehim.com/demo/zoom-image-on-mouseover-using-javascript/*/
+#img-zoomer-box {
+  max-width: 90vw;
+  height: auto;
+  position: relative;
+  margin: var(--esp-petit) auto;
+}
+
+#img-1 {
+  width: 100%;
+  height: auto;
+}
+
+#img-zoomer-box:hover,
+#img-zoomer-box:active {
+  cursor: zoom-in;
+  display: block;
+}
+
+#img-zoomer-box:hover #img-2,
+#img-zoomer-box:active #img-2 {
+  opacity: 1;
+}
+
+#img-2 {
+  width: 340px;
+  height: 340px;
+  background: url('../img/timbre-placeholder.jpg') no-repeat #FFF;
+  box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  position: absolute;
+  opacity: 0;
+  border: 4px solid whitesmoke;
+  z-index: 99;
+  border-radius: 100%;
+  display: block;
+  transition: opacity .2s;
+}
+
+
+/*mediaqueries -­ mobile first*/
+
+/* Petite tablette */
+@media screen and (min-width:481px)  {   
+    
+}
+
+/* Portrait tablettess, portrait iPad, paysage 800x480 cellulaire */
+@media screen and (min-width:641px) {
+  
+}
+
+/* Tablettes, paysage iPad, lo-res laptops et desktops */
+@media screen and (min-width:961px) {
+  .fiche {
+    flex-direction: row;
+    gap: var(--esp-large);
+  }
+
+  /*zoom*/
+  #img-zoomer-box {
+    max-width: 40vw;
+    height: auto;
+    position: relative;
+    margin: 10px auto;
+  }
+  
+  #img-1 {
+    width: 100%;
+    height: auto;
+  }
+  
+  #img-zoomer-box:hover,
+  #img-zoomer-box:active {
+    cursor: zoom-in;
+    display: block;
+  }
+  
+  #img-zoomer-box:hover #img-2,
+  #img-zoomer-box:active #img-2 {
+    opacity: 1;
+  }
+  
+  #img-2 {
+    width: 340px;
+    height: 340px;
+    background: url('../img/timbre-placeholder.jpg') no-repeat #FFF;
+    box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    position: absolute;
+    opacity: 0;
+    border: 4px solid whitesmoke;
+    z-index: 99;
+    border-radius: 100%;
+    display: block;
+    transition: opacity .2s;
+  }
+  
+
+}
+
+/* Grande tablette paysage, laptops, and desktops */
+@media screen and (min-width:1025px) {
+    
+}
+
+/* Grande resolution laptop - desktops */ 
+@media screen and (min-width:1281px) {
+    
+}
+
+/* Écran grande resolution*/
+@media screen and (min-width: 1540px) {
+    
+}
+
+
+/* Écran grande resolution*/
+@media screen and (min-width: 1920px) {
+    
+}
+
+/* Ecrn 4K ultra grande resolution*/
+@media screen and (min-width: 3840px) {
+    
+}

@@ -1,0 +1,87 @@
+aside.afficheTri{
+    width: 80vw;
+    background-color: var(--blanc);
+    margin-left: -2000px;
+    box-shadow: 2px 2px 6px 2px rgba(143,143,143,0.81);
+    position:absolute;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+
+aside.deploi{
+    margin-left: -10px;
+    padding: var(--esp-petit);
+   /* display: block;*/
+}
+
+.afficheTri fieldset{
+    border: 1px solid var(--bordure-couleur);
+    padding: var(--esp-petit);
+    margin: var(--esp-petit) 0
+}
+
+.afficheTri fieldset legend{
+    font-family: var(--font-famille-titre) ;
+    font-size: calc(var(--font-size-base) + var(--font-size-ratio) * 1vw);
+    font-weight: 700;
+}
+
+.afficheTri fieldset fieldset{
+    margin: var(--esp-xpetit) 0
+}
+
+.afficheTri fieldset fieldset legend{
+    font-size: calc(var(--font-size-base) + var(--font-size-ratio) * 0.75vw);
+    font-weight: 700;
+}
+    
+.afficheTri form label{
+    display: block;
+    font-size: calc(var(--font-size-base) + var(--font-size-ratio) * 0.5vw);
+}
+
+
+
+/*mediaqueries -­ mobile first*/
+
+/* Petite tablette */
+@media screen and (min-width:481px)  {   
+   
+}
+
+/* Portrait tablettess, portrait iPad, paysage 800x480 cellulaire */
+@media screen and (min-width:641px) {
+    
+}
+
+/* Tablettes, paysage iPad, lo-res laptops et desktops */
+@media screen and (min-width:961px) {
+    aside.afficheTri{
+        position: relative;
+        width: 20vw;
+        margin-left: 0;
+        display: block;
+        box-shadow:none;
+    }
+}
+
+/* Grande tablette paysage, laptops, and desktops */
+@media screen and (min-width:1025px) {
+   
+}
+
+/* Grande resolution laptop - desktops */ 
+@media screen and (min-width:1281px) {
+    
+}
+
+/* Écran grande resolution*/
+@media screen and (min-width: 1920px) {
+        
+}
+
+/* Ecrn 4K ultra grande resolution*/
+@media screen and (min-width: 3840px) {
+    
+}
